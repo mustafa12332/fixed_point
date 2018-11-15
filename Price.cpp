@@ -1,9 +1,8 @@
 //
-// Created by musta on 11/14/2018.
+// Created by Mustafa on 11/14/2018.
 //
 
 #include "Price.h"
-#include <math.h>
 #include <iostream>
 #include <sstream>
 
@@ -12,7 +11,7 @@ Price::Price(int dollar) : m_price(dollar * DOLLAR) {}
 
 Price::Price(int dollars, int cents) : m_price(dollars * DOLLAR + cents) {}
 
-Price::~Price() {}
+Price::~Price() = default;
 
 std::ostream &operator<<(std::ostream &os, const Price &price1) {
     std::stringstream s1;
@@ -106,9 +105,10 @@ Price &Price::operator++() {
     return *this;
 }
 
-Price Price::operator++(int a) {
-
-    return ++*this;
+const Price Price::operator++(int)  {
+    Price res;
+    res.m_price = m_price + DOLLAR;
+    return res;
 }
 
 Price &Price::operator--() {
@@ -116,20 +116,21 @@ Price &Price::operator--() {
     return *this;
 }
 
-Price Price::operator--(int a) {
-    return --*this;
+const Price Price::operator--(int) {
+    Price res;
+    res.m_price = m_price + DOLLAR;
+    return res;
 }
 
-void Price::operator=(const Price &D) {
-    this->m_price = D.m_price;
-}
+Price& Price::operator=(const Price &D) = default;
 
 Price::operator double() {
     double dollars = (double) this->m_price / DOLLAR;
-    return (double) dollars;
+    return dollars;
 }
 
-void Price::operator=(int number) {
+Price & Price::operator=(int number) {
     this->m_price = number;
+    return *this;
 }
 

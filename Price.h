@@ -13,7 +13,7 @@ public:
 
     /*********************************/
 
-    explicit Price(int m_price);
+    explicit Price(int m_price = 0);
 
     Price(int dollars, int cents);
 
@@ -37,21 +37,21 @@ public:
 
     Price &operator++();
 
-    Price operator++(int a);
+    const Price operator++(int);
 
     Price &operator--();
 
-    Price operator--(int a);
+    const Price operator--(int);
 
     /*********************************/
 
-    void operator=(const Price &D);
+    Price & operator=(const Price &D);
 
-    void operator=(int number);
+    Price & operator=(int number);
 
     /*********************************/
-    
-    operator double();
+
+    explicit operator double();
 
     /*********************************/
     Price &operator+=(const Price &p1);
