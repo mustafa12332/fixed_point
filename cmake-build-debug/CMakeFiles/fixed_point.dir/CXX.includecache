@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/musta/CLionProjects/fixed_point/Price.cpp
+Price.h
+C:/Users/musta/CLionProjects/fixed_point/Price.h
+math.h
+-
+iostream
+-
+sstream
+-
+
+C:/Users/musta/CLionProjects/fixed_point/Price.h
+ostream
+-
+
+C:/Users/musta/CLionProjects/fixed_point/main.cpp
+iostream
+-
+Price.h
+C:/Users/musta/CLionProjects/fixed_point/Price.h
+
